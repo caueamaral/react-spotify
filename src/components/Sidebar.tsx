@@ -1,7 +1,7 @@
 export default function Sidebar() {
     return  (
-        <header>
+        <aside>
             <div>Sidebar</div>
-        </header>
+        </aside>
     )
 }
