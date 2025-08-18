@@ -1,9 +1,11 @@
-import Content from './Content'
+import Artists from './Artists'
 
 export default function Main() {
     return (
-        <main className="bg-gray-700 text-gray-100 p-5">
-            <Content />
+        <main className="bg-gray-800 text-gray-100 p-5 min-h-max">
+            <article>
+                <Artists />
+            </article>
         </main>
     )
 }
