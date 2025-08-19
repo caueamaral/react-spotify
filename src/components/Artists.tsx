@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import type { Artist } from '../interfaces/Artist'
 import { getAccessToken, getArtists } from '../services/spotify'
+import formatText from '../functions/formatText'
 
 export default function Artists() {
     const [accessToken, setAccessToken] = useState('')
@@ -37,7 +38,7 @@ export default function Artists() {
                         <figcaption className="mt-2 text-gray-300 text-sm">
                             {artist.name}
                         </figcaption>
-                        <Link to={`/artists/${artist.name}`} className="absolute inset-0"></Link>
+                        <Link to={`/artist/${artist.id}/${formatText(artist.name)}`} className="absolute inset-0"></Link>
                     </div>
                 ))}
             </section>
