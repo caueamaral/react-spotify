@@ -1,4 +1,5 @@
 import axios from 'axios'
+import type { Artist } from '../interfaces/Artist'
 
 const clientId = import.meta.env.VITE_CLIENT_ID
 const clientSecret = import.meta.env.VITE_CLIENT_SECRET
@@ -24,9 +25,7 @@ export async function getAccessToken(): Promise<string> {
     return response.data.access_token
 }
 
-export async function getArtists() {
-    const token = await getAccessToken()
-
+export async function getArtists(accessToken: string): Promise<Artist[]> {
     const response = await axios.get(
         'https://api.spotify.com/v1/search',
         {
@@ -36,7 +35,7 @@ export async function getArtists() {
                 limit: 16
             },
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${accessToken}`
             }
         }
     )
