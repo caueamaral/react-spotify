@@ -1,28 +1,15 @@
-import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { useEffect, useState } from 'react'
 import type { Artist } from '../interfaces/Artist'
+import { getAccessToken } from '../services/spotify'
 
 export default function Artists() {
-    const clientId = import.meta.env.VITE_CLIENT_ID
-    const clientSecret = import.meta.env.VITE_CLIENT_SECRET
-
     const [accessToken, setAccessToken] = useState('')
     const [artists, setArtists] = useState<Artist[]>([])
 
     useEffect(() => {
-        const authHeader = btoa(`${clientId}:${clientSecret}`)
-
-        axios.post(
-            'https://accounts.spotify.com/api/token',
-            new URLSearchParams({ grant_type: 'client_credentials' }),
-            {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Authorization': `Basic ${authHeader}`
-                },
-            }
-        )
-            .then(response => setAccessToken(response.data.access_token))
+        getAccessToken()
+            .then(token => setAccessToken(token))
     }, [])
 
     useEffect(() => {
