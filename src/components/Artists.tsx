@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import type { Artist } from '../interfaces/Artist'
 import { getAccessToken, getArtists } from '../services/spotify'
 
@@ -25,7 +26,7 @@ export default function Artists() {
             </h1>
             <section className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
                 {artists.map(artist => (
-                    <div key={artist.id}>
+                    <div key={artist.id} className="relative">
                         <figure className="bg-gray-400 w-full aspect-square rounded-md overflow-hidden">
                             <img
                                 src={artist.images[0]?.url}
@@ -36,6 +37,7 @@ export default function Artists() {
                         <figcaption className="mt-2 text-gray-300 text-sm">
                             {artist.name}
                         </figcaption>
+                        <Link to={`/artists/${artist.name}`} className="absolute inset-0"></Link>
                     </div>
                 ))}
             </section>
