@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 import type { Artist } from '../interfaces/Artist'
 
 export default function Artists() {
@@ -11,33 +12,38 @@ export default function Artists() {
     useEffect(() => {
         const authHeader = btoa(`${clientId}:${clientSecret}`)
 
-        fetch('https://accounts.spotify.com/api/token', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': `Basic ${authHeader}`
-            },
-            body: `grant_type=client_credentials`
-        })
-            .then(response => response.json())
-            .then(data => setAccessToken(data.access_token))
+        axios.post(
+            'https://accounts.spotify.com/api/token',
+            new URLSearchParams({ grant_type: 'client_credentials' }),
+            {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Authorization': `Basic ${authHeader}`
+                },
+            }
+        )
+            .then(response => setAccessToken(response.data.access_token))
     }, [])
 
     useEffect(() => {
         if (!accessToken) return
 
         const fetchArtists = async () => {
-            const response = await fetch(
-                'https://api.spotify.com/v1/search?q=rock&type=artist&limit=16',
+            const response = await axios.get(
+                'https://api.spotify.com/v1/search',
                 {
+                    params: {
+                        q: 'rock',
+                        type: 'artist',
+                        limit: 16
+                    },
                     headers: {
                         Authorization: `Bearer ${accessToken}`
                     }
                 }
             )
 
-            const data = await response.json()
-            setArtists(data.artists.items)
+            setArtists(response.data.artists.items)
         }
 
         fetchArtists()
