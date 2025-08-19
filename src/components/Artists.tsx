@@ -1,7 +1,6 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import type { Artist } from '../interfaces/Artist'
-import { getAccessToken } from '../services/spotify'
+import { getAccessToken, getArtists } from '../services/spotify'
 
 export default function Artists() {
     const [accessToken, setAccessToken] = useState('')
@@ -15,25 +14,8 @@ export default function Artists() {
     useEffect(() => {
         if (!accessToken) return
 
-        const fetchArtists = async () => {
-            const response = await axios.get(
-                'https://api.spotify.com/v1/search',
-                {
-                    params: {
-                        q: 'rock',
-                        type: 'artist',
-                        limit: 16
-                    },
-                    headers: {
-                        Authorization: `Bearer ${accessToken}`
-                    }
-                }
-            )
-
-            setArtists(response.data.artists.items)
-        }
-
-        fetchArtists()
+        getArtists()
+            .then(response => setArtists(response))
     }, [accessToken])
 
     return  (

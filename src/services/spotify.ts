@@ -23,3 +23,23 @@ export async function getAccessToken(): Promise<string> {
 
     return response.data.access_token
 }
+
+export async function getArtists() {
+    const token = await getAccessToken()
+
+    const response = await axios.get(
+        'https://api.spotify.com/v1/search',
+        {
+            params: {
+                q: 'rock',
+                type: 'artist',
+                limit: 16
+            },
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+    )
+
+    return response.data.artists.items
+}
