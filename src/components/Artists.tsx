@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
+import type { Artist } from '../interfaces/Artist'
 
 export default function Artists() {
     const clientId = import.meta.env.VITE_CLIENT_ID
     const clientSecret = import.meta.env.VITE_CLIENT_SECRET
 
     const [accessToken, setAccessToken] = useState('')
-    const [artists, setArtists] = useState([])
+    const [artists, setArtists] = useState<Artist[]>([])
 
     useEffect(() => {
         const authHeader = btoa(`${clientId}:${clientSecret}`)
