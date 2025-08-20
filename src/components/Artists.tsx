@@ -35,7 +35,7 @@ export default function Artists() {
                                 className="w-full object-cover"
                             />
                         </figure>
-                        <figcaption className="mt-2 text-gray-300 text-sm">
+                        <figcaption className="mt-2 text-gray-400 text-sm">
                             {artist.name}
                         </figcaption>
                         <Link to={`/artist/${artist.id}/${formatText(artist.name)}`} className="absolute inset-0"></Link>

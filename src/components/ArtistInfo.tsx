@@ -56,13 +56,13 @@ export default function ArtistInfo() {
                                 {artist.name}
                             </h1>
                             <div className="mt-5">
-                                <p className="text-gray-300">
+                                <p className="text-gray-400">
                                     Popularity: {artist.popularity}
                                 </p>
-                                <p className="text-gray-300">
+                                <p className="text-gray-400">
                                     Followers: {artist.followers.total}
                                 </p>
-                                <p className="text-gray-300">
+                                <p className="text-gray-400">
                                     Genres: {formatArrayWithCommas(artist.genres)}
                                 </p>
                             </div>
@@ -88,7 +88,7 @@ export default function ArtistInfo() {
                                             className="w-full object-cover"
                                         />
                                     </figure>
-                                    <figcaption className="mt-2 text-gray-300 text-sm">
+                                    <figcaption className="mt-2 text-gray-400 text-sm">
                                         {album.name}
                                     </figcaption>
                                 </section>
