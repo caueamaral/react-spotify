@@ -32,7 +32,7 @@ export async function getArtists(accessToken: string): Promise<Artist[]> {
             params: {
                 q: 'rock',
                 type: 'artist',
-                limit: 16
+                limit: 24
             },
             headers: {
                 Authorization: `Bearer ${accessToken}`
