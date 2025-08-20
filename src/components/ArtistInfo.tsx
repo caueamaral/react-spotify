@@ -32,7 +32,17 @@ export default function ArtistInfo() {
                          <h1 className="text-2xl font-medium">
                             {artist.name}
                         </h1>
-                        <figure className="w-128 max-w-full aspect-square rounded-md overflow-hidden mt-5">
+                        <p className="text-gray-300 mt-1">
+                            Popularity: {artist.popularity}
+                        </p>
+                        <figure className="w-96 max-w-full aspect-square rounded-md overflow-hidden mt-5">
+                            <img
+                                src={artist.images[0].url}
+                                alt={artist.name}
+                                className="w-full object-cover"
+                            />
+                        </figure>
+                        <figure className="w-96 max-w-full aspect-square rounded-md overflow-hidden mt-5">
                             <img
                                 src={artist.images[0].url}
                                 alt={artist.name}
