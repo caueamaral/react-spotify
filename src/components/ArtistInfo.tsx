@@ -41,21 +41,23 @@ export default function ArtistInfo() {
                 !artist ? (
                     <p>Loading artist...</p>
                 ) : (
-                    <>
-                         <h1 className="text-2xl font-medium">
-                            {artist.name}
-                        </h1>
-                        <p className="text-gray-300 mt-1">
-                            Popularity: {artist.popularity}
-                        </p>
-                        <figure className="w-96 max-w-full aspect-square rounded-md overflow-hidden mt-5">
+                    <section className="flex flex-col gap-5 md:flex-row">
+                        <figure className="w-full aspect-square rounded-md overflow-hidden md:max-w-96">
                             <img
                                 src={artist.images[0].url}
                                 alt={artist.name}
                                 className="w-full object-cover"
                             />
                         </figure>
-                    </>
+                        <div>
+                            <h1 className="text-2xl font-medium">
+                                {artist.name}
+                            </h1>
+                            <p className="text-gray-300 mt-1">
+                                Popularity: {artist.popularity}
+                            </p>
+                        </div>
+                    </section>
                 )
             }
         </>
