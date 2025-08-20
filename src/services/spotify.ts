@@ -43,9 +43,9 @@ export async function getArtists(accessToken: string): Promise<Artist[]> {
     return response.data.artists.items
 }
 
-export async function getArtist(accessToken: string, id: string): Promise<Artist> {
+export async function getArtist(accessToken: string, artistId: string): Promise<Artist> {
     const response = await axios.get<Artist>(
-        `https://api.spotify.com/v1/artists/${id}`,
+        `https://api.spotify.com/v1/artists/${artistId}`,
         {
             headers: {
                 Authorization: `Bearer ${accessToken}`
