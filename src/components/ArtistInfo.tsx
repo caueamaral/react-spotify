@@ -42,13 +42,6 @@ export default function ArtistInfo() {
                                 className="w-full object-cover"
                             />
                         </figure>
-                        <figure className="w-96 max-w-full aspect-square rounded-md overflow-hidden mt-5">
-                            <img
-                                src={artist.images[0].url}
-                                alt={artist.name}
-                                className="w-full object-cover"
-                            />
-                        </figure>
                     </>
                 )
             }
