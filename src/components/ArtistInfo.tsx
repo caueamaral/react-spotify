@@ -60,6 +60,9 @@ export default function ArtistInfo() {
                                 <p className="text-gray-300">
                                     Followers: {artist.followers.total}
                                 </p>
+                                <p className="text-gray-300">
+                                    Followers: {artist.followers.total}
+                                </p>
                             </div>
                         </div>
                     </section>
