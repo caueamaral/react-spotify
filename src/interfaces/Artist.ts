@@ -5,6 +5,7 @@ export interface Artist {
     name: string,
     popularity: number,
     images: ArtistImage[],
+    genres: string[],
     followers: {
         total: number
     },

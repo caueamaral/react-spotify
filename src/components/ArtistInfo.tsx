@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getAccessToken, getArtist, getAlbums } from '../services/spotify'
+import formatArrayWithCommas from '../functions/formatArrayWithCommas'
 import type { Artist } from '../interfaces/Artist'
 
 export default function ArtistInfo() {
@@ -61,7 +62,7 @@ export default function ArtistInfo() {
                                     Followers: {artist.followers.total}
                                 </p>
                                 <p className="text-gray-300">
-                                    Followers: {artist.followers.total}
+                                    Genres: {formatArrayWithCommas(artist.genres)}
                                 </p>
                             </div>
                         </div>
