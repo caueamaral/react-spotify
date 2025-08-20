@@ -14,19 +14,13 @@ export default function ArtistInfo() {
     }, [])
 
     useEffect(() => {
-        if(!id) return
+        if(!accessToken || !id) return
 
         getArtist(accessToken, id)
             .then(response => {
-                console.log('artist1', artist)
-
                 setArtist(response)}
             )
     }, [accessToken])
-
-    useEffect(() => {
-        console.log('artist2', artist)
-    }, [artist])
 
     return (
         <>
