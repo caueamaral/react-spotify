@@ -8,7 +8,7 @@ export default function Main() {
             <article>
                 <Routes>
                     <Route path="/" element={<Artists />} />
-                    <Route path="/artist/:query" element={<ArtistInfo/>} />
+                    <Route path="/artist/:id/:name" element={<ArtistInfo/>} />
                 </Routes>
             </article>
         </main>
