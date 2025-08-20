@@ -30,7 +30,7 @@ export default function Artists() {
                     <div key={artist.id} className="relative">
                         <figure className="bg-gray-400 w-full aspect-square rounded-md overflow-hidden">
                             <img
-                                src={artist.images[0]?.url}
+                                src={artist.images[1]?.url}
                                 alt={artist.name}
                                 className="w-full object-cover"
                             />
