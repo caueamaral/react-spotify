@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function Header() {
     return  (
-        <header className="bg-gray-900 p-5">
+        <header className="p-5">
             <Link to="/">
                 <svg
                     role="img"

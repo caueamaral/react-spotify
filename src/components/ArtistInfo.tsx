@@ -32,7 +32,7 @@ export default function ArtistInfo() {
     }, [artist])
 
     useEffect(() => {
-        console.log('albums', albums)
+        console.log('artist', artist)
     }, [albums])
 
     return (
@@ -42,7 +42,7 @@ export default function ArtistInfo() {
                     <p>Loading artist...</p>
                 ) : (
                     <section className="flex flex-col gap-5 md:flex-row">
-                        <figure className="w-full aspect-square rounded-md overflow-hidden md:max-w-96">
+                        <figure className="w-full aspect-square rounded-lg overflow-hidden md:max-w-96">
                             <img
                                 src={artist.images[0].url}
                                 alt={artist.name}
@@ -53,9 +53,14 @@ export default function ArtistInfo() {
                             <h1 className="text-2xl font-medium">
                                 {artist.name}
                             </h1>
-                            <p className="text-gray-300 mt-1">
-                                Popularity: {artist.popularity}
-                            </p>
+                            <div className="mt-5">
+                                <p className="text-gray-300">
+                                    Popularity: {artist.popularity}
+                                </p>
+                                <p className="text-gray-300">
+                                    Followers: {artist.followers.total}
+                                </p>
+                            </div>
                         </div>
                     </section>
                 )

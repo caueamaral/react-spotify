@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 
 export default function Main() {
     return (
-        <main className="bg-gray-800 text-gray-100 p-5 min-h-max">
+        <main className="p-5 min-h-max">
             <article>
                 <Routes>
                     <Route path="/" element={<Artists />} />
