@@ -21,26 +21,36 @@ export default function Artists() {
 
     return  (
         <article>
-            <h1 className="text-2xl font-medium">
-                Artists in: Rock
-            </h1>
-            <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
-                {artists.map(artist => (
-                    <section key={artist.id} className="relative">
-                        <figure className="bg-gray-400 w-full aspect-square rounded-md overflow-hidden">
-                            <img
-                                src={artist.images[1]?.url}
-                                alt={artist.name}
-                                className="w-full object-cover"
-                            />
-                        </figure>
-                        <figcaption className="mt-2 text-gray-400 text-sm">
-                            {artist.name}
-                        </figcaption>
-                        <Link to={`/artist/${artist.id}/${formatText(artist.name)}`} className="absolute inset-0"></Link>
-                    </section>
-                ))}
-            </div>
+            {
+                !artists.length ? (
+                    <h1 className="text-2xl font-medium">
+                        Loading artists...
+                    </h1>
+                ) : (
+                    <>
+                        <h1 className="text-2xl font-medium">
+                            Artists in: Rock
+                        </h1>
+                        <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
+                            {artists.map(artist => (
+                                <section key={artist.id} className="relative">
+                                    <figure className="bg-gray-400 w-full aspect-square rounded-md overflow-hidden">
+                                        <img
+                                            src={artist.images[1]?.url}
+                                            alt={artist.name}
+                                            className="w-full object-cover"
+                                        />
+                                    </figure>
+                                    <figcaption className="mt-2 text-gray-400 text-sm">
+                                        {artist.name}
+                                    </figcaption>
+                                    <Link to={`/artist/${artist.id}/${formatText(artist.name)}`} className="absolute inset-0"></Link>
+                                </section>
+                            ))}
+                        </div>   
+                    </>
+                )
+            }
         </article>
     )
 }

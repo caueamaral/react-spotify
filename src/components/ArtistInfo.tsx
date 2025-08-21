@@ -52,7 +52,9 @@ export default function ArtistInfo() {
         <>
             {
                 !artist ? (
-                    <p>Loading artist...</p>
+                    <h1 className="text-2xl font-medium">
+                        Loading artist...
+                    </h1>
                 ) : (
                     <article className="flex flex-col gap-5 md:flex-row">
                         <figure className="w-full aspect-square rounded-lg overflow-hidden md:max-w-103">
@@ -103,7 +105,9 @@ export default function ArtistInfo() {
             }
             {
                 !albums ? (
-                    <p>Loading albums...</p>
+                    <h1 className="text-2xl font-medium mt-8">
+                        Loading albums...
+                    </h1>
                 ) : (
                     <article className="mt-8">
                         <h1 className="text-2xl font-medium">
