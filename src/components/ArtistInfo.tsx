@@ -4,15 +4,18 @@ import { useAccessToken } from '../contexts/AccessTokenContext'
 
 import type { Artist } from '../interfaces/Artist'
 import type { Album } from '../interfaces/Album'
+import type { TopTracks } from '../interfaces/TopTracks'
 
 import formatArrayWithCommas from '../functions/formatArrayWithCommas'
-import getAlbums from '../services/getAlbums'
 import getArtist from '../services/getArtist'
+import getAlbums from '../services/getAlbums'
+import getTopTracks from '../services/getTopTracks'
 
 export default function ArtistInfo() {
     const accessToken = useAccessToken()
     const [artist, setArtist] = useState<Artist | null>(null)
     const [albums, setAlbums] = useState<Album[] | null>(null)
+    const [topTracks, setTopTracks] = useState<TopTracks | null>(null)
     
     const { id } = useParams<{ id: string }>()
 
@@ -33,8 +36,17 @@ export default function ArtistInfo() {
     }, [artist])
 
     useEffect(() => {
-        console.log('albums', albums)
+        if (!accessToken || !id) return
+
+        getTopTracks(accessToken, id)
+            .then(response => setTopTracks(response))
     }, [albums])
+
+    useEffect(() => {
+        if (!topTracks) return
+
+        console.log('topTracks', topTracks.tracks)
+    })
 
     return (
         <>
@@ -65,6 +77,19 @@ export default function ArtistInfo() {
                                     Genres: {formatArrayWithCommas(artist.genres)}
                                 </p>
                             </div>
+                            {
+                                !topTracks ? (
+                                    <p>Loading top tracks...</p>
+                                ) : (
+                                    <div className="mt-5">
+                                        {topTracks.tracks.map(track => (
+                                            <p>
+                                                {track.album.name}
+                                            </p>
+                                        ))}
+                                    </div>
+                                )
+                            }
                         </section>
                     </article>
                 )
