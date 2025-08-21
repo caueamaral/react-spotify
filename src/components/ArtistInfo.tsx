@@ -55,7 +55,7 @@ export default function ArtistInfo() {
                     <p>Loading artist...</p>
                 ) : (
                     <article className="flex flex-col gap-5 md:flex-row">
-                        <figure className="w-full aspect-square rounded-lg overflow-hidden md:max-w-96">
+                        <figure className="w-full aspect-square rounded-lg overflow-hidden md:max-w-103">
                             <img
                                 src={artist.images[0].url}
                                 alt={artist.name}
@@ -66,7 +66,7 @@ export default function ArtistInfo() {
                             <h1 className="text-2xl font-medium">
                                 {artist.name}
                             </h1>
-                            <div className="mt-5">
+                            <div className="mt-1">
                                 <p className="text-gray-400">
                                     Popularity: {artist.popularity}
                                 </p>
@@ -79,14 +79,21 @@ export default function ArtistInfo() {
                             </div>
                             {
                                 !topTracks ? (
-                                    <p>Loading top tracks...</p>
+                                    <p className="mt-8">
+                                        Loading top tracks...
+                                    </p>
                                 ) : (
-                                    <div className="mt-5">
-                                        {topTracks.tracks.map(track => (
-                                            <p>
-                                                {track.album.name}
-                                            </p>
-                                        ))}
+                                    <div className="mt-8">
+                                        <h2 className="text-xl font-medium">
+                                            Top Tracks
+                                        </h2>
+                                        <div className="mt-1">
+                                            {topTracks.tracks.map(track => (
+                                                <p key={track.id}>
+                                                    {track.album.name}
+                                                </p>
+                                            ))}
+                                        </div>
                                     </div>
                                 )
                             }
@@ -98,7 +105,7 @@ export default function ArtistInfo() {
                 !albums ? (
                     <p>Loading albums...</p>
                 ) : (
-                    <article className="mt-5">
+                    <article className="mt-8">
                         <h1 className="text-2xl font-medium">
                             Albums
                         </h1>
