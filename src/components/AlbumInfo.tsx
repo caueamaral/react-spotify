@@ -4,6 +4,7 @@ import { useAccessToken } from '../contexts/AccessTokenContext'
 import getAlbum from '../services/getAlbum'
 
 import formatDate from '../functions/formatDate'
+import formatDuration from '../functions/formatDuration'
 
 import type Album from '../interfaces/Album'
 import Title from '../components/Title'
@@ -61,8 +62,10 @@ export default function AlbumInfo() {
                                     {album.tracks.items.map(item => (
                                         <p key={item.id} className="mt-3">
                                             {item.track_number}-
-                                            {item.name}
-                                            <span className="text-gray-400 text-sm ml-1">({item.duration_ms})</span>
+                                            <span className="ml-1">{item.name}</span>
+                                            <span className="text-gray-400 text-sm ml-1">
+                                                ({formatDuration(item.duration_ms)})
+                                            </span>
                                         </p>
                                     ))}
                                 </div>
