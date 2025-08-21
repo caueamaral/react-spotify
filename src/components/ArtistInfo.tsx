@@ -84,7 +84,7 @@ export default function ArtistInfo() {
                                         <div className="mt-1">
                                             {topTracks.tracks.map(track => (
                                                 <p key={track.id}>
-                                                    - {track.album.name}
+                                                    - {track.name}
                                                 </p>
                                             ))}
                                         </div>
