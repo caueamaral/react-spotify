@@ -1,17 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import type { Artist } from '../interfaces/Artist'
-import { getAccessToken, getArtists } from '../services/spotify'
+import { getArtists } from '../services/spotify'
 import formatText from '../functions/formatText'
+import { useAccessToken } from '../contexts/AccessTokenContext'
 
 export default function Artists() {
-    const [accessToken, setAccessToken] = useState('')
+    const accessToken = useAccessToken()
     const [artists, setArtists] = useState<Artist[]>([])
-
-    useEffect(() => {
-        getAccessToken()
-            .then(token => setAccessToken(token))
-    }, [])
 
     useEffect(() => {
         if (!accessToken) return

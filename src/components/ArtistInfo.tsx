@@ -1,21 +1,17 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getAccessToken, getArtist, getAlbums } from '../services/spotify'
+import { getArtist, getAlbums } from '../services/spotify'
 import formatArrayWithCommas from '../functions/formatArrayWithCommas'
+import { useAccessToken } from '../contexts/AccessTokenContext'
 import type { Artist } from '../interfaces/Artist'
 import type { Album } from '../interfaces/Album'
 
 export default function ArtistInfo() {
-    const [accessToken, setAccessToken] = useState('')
+    const accessToken = useAccessToken()
     const [artist, setArtist] = useState<Artist | null>(null)
     const [albums, setAlbums] = useState<Album[] | null>(null)
     
     const { id } = useParams<{ id: string }>()
-
-    useEffect(() => {
-        getAccessToken()
-            .then(token => setAccessToken(token))
-    }, [])
 
     useEffect(() => {
         if (!accessToken || !id) return
