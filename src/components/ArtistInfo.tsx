@@ -81,11 +81,11 @@ export default function ArtistInfo() {
                             </div>
                             {
                                 !topTracks ? (
-                                    <p className="mt-8">
+                                    <p className="mt-10">
                                         Loading top tracks...
                                     </p>
                                 ) : (
-                                    <div className="mt-8">
+                                    <div className="mt-10">
                                         <h2 className="text-xl font-medium">
                                             Top Tracks
                                         </h2>
