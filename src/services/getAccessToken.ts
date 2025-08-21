@@ -3,7 +3,7 @@ import axios from 'axios'
 const clientId = import.meta.env.VITE_CLIENT_ID
 const clientSecret = import.meta.env.VITE_CLIENT_SECRET
 
-export async function getAccessToken(): Promise<string> {
+export default async function getAccessToken(): Promise<string> {
     const authHeader = btoa(`${clientId}:${clientSecret}`)
 
     const response = await axios.post(

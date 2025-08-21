@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
-import { getAccessToken } from '../services/getAccessToken'
+import getAccessToken from '../services/getAccessToken'
 
 export const AccessTokenContext = createContext<string | undefined>(undefined)
 

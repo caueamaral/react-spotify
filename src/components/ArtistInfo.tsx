@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getAlbums } from '../services/getAlbums'
-import { getArtist } from '../services/getArtist'
-import formatArrayWithCommas from '../functions/formatArrayWithCommas'
 import { useAccessToken } from '../contexts/AccessTokenContext'
+
 import type { Artist } from '../interfaces/Artist'
 import type { Album } from '../interfaces/Album'
+
+import formatArrayWithCommas from '../functions/formatArrayWithCommas'
+import getAlbums from '../services/getAlbums'
+import getArtist from '../services/getArtist'
 
 export default function ArtistInfo() {
     const accessToken = useAccessToken()

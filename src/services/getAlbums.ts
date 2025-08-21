@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export async function getAlbums(accessToken: string, artistId: string) {
+export default async function getAlbums(accessToken: string, artistId: string) {
     const response = await axios.get(
         `https://api.spotify.com/v1/artists/${artistId}/albums`,
         {

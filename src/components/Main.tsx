@@ -1,6 +1,7 @@
+import { Routes, Route } from 'react-router-dom'
+
 import Artists from './Artists'
 import ArtistInfo from './ArtistInfo'
-import { Routes, Route } from 'react-router-dom'
 
 export default function Main() {
     return (

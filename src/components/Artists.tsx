@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import type { Artist } from '../interfaces/Artist'
-import { getArtists } from '../services/getArtists'
-import formatText from '../functions/formatText'
 import { useAccessToken } from '../contexts/AccessTokenContext'
+
+import type { Artist } from '../interfaces/Artist'
+
+import getArtists from '../services/getArtists'
+import formatText from '../functions/formatText'
+
 
 export default function Artists() {
     const accessToken = useAccessToken()
