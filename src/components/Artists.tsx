@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { useAccessToken } from '../contexts/AccessTokenContext'
 
 import type { Artist } from '../interfaces/Artist'
 
 import getArtists from '../services/getArtists'
-import formatText from '../functions/formatText'
-
+import ArtistCard from '../components/ArtistCard'
 
 export default function Artists() {
     const accessToken = useAccessToken()
@@ -42,21 +40,9 @@ export default function Artists() {
                             </h1>
                             <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
                                 {artistsRock.map(artist => (
-                                    <section key={artist.id} className="relative">
-                                        <figure className="bg-gray-400 w-full aspect-square rounded-md overflow-hidden">
-                                            <img
-                                                src={artist.images[1]?.url}
-                                                alt={artist.name}
-                                                className="w-full object-cover"
-                                            />
-                                        </figure>
-                                        <figcaption className="mt-2 text-gray-400 text-sm">
-                                            {artist.name}
-                                        </figcaption>
-                                        <Link to={`/artist/${artist.id}/${formatText(artist.name)}`} className="absolute inset-0"></Link>
-                                    </section>
+                                    <ArtistCard artist={artist} />
                                 ))}
-                            </div>   
+                            </div>
                         </>
                     )
                 }
@@ -74,21 +60,9 @@ export default function Artists() {
                             </h1>
                             <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
                                 {artistsPop.map(artist => (
-                                    <section key={artist.id} className="relative">
-                                        <figure className="bg-gray-400 w-full aspect-square rounded-md overflow-hidden">
-                                            <img
-                                                src={artist.images[1]?.url}
-                                                alt={artist.name}
-                                                className="w-full object-cover"
-                                            />
-                                        </figure>
-                                        <figcaption className="mt-2 text-gray-400 text-sm">
-                                            {artist.name}
-                                        </figcaption>
-                                        <Link to={`/artist/${artist.id}/${formatText(artist.name)}`} className="absolute inset-0"></Link>
-                                    </section>
+                                    <ArtistCard artist={artist} />
                                 ))}
-                            </div>   
+                            </div>
                         </>
                     )
                 }
@@ -106,19 +80,7 @@ export default function Artists() {
                             </h1>
                             <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
                                 {artistsCountry.map(artist => (
-                                    <section key={artist.id} className="relative">
-                                        <figure className="bg-gray-400 w-full aspect-square rounded-md overflow-hidden">
-                                            <img
-                                                src={artist.images[1]?.url}
-                                                alt={artist.name}
-                                                className="w-full object-cover"
-                                            />
-                                        </figure>
-                                        <figcaption className="mt-2 text-gray-400 text-sm">
-                                            {artist.name}
-                                        </figcaption>
-                                        <Link to={`/artist/${artist.id}/${formatText(artist.name)}`} className="absolute inset-0"></Link>
-                                    </section>
+                                    <ArtistCard artist={artist} />
                                 ))}
                             </div>   
                         </>

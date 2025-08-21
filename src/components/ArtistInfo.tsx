@@ -42,12 +42,6 @@ export default function ArtistInfo() {
             .then(response => setTopTracks(response))
     }, [albums])
 
-    useEffect(() => {
-        if (!topTracks) return
-
-        console.log('topTracks', topTracks.tracks)
-    })
-
     return (
         <>
             {
