@@ -15,7 +15,7 @@ export default function Artists() {
     useEffect(() => {
         if (!accessToken) return
 
-        getArtists(accessToken)
+        getArtists(accessToken, 'rock')
             .then(response => setArtists(response))
     }, [accessToken])
 
