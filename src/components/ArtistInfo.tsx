@@ -10,6 +10,7 @@ import formatArrayWithCommas from '../functions/formatArrayWithCommas'
 import getArtist from '../services/getArtist'
 import getAlbums from '../services/getAlbums'
 import getTopTracks from '../services/getTopTracks'
+import Title from '../components/Title'
 
 export default function ArtistInfo() {
     const accessToken = useAccessToken()
@@ -46,9 +47,7 @@ export default function ArtistInfo() {
         <>
             {
                 !artist ? (
-                    <h1 className="text-2xl font-medium">
-                        Loading artist...
-                    </h1>
+                    <Title text="Loading artist..." />
                 ) : (
                     <article className="flex flex-col gap-5 md:flex-row">
                         <figure className="w-full aspect-square rounded-lg overflow-hidden md:max-w-105">
@@ -59,9 +58,7 @@ export default function ArtistInfo() {
                             />
                         </figure>
                         <section>
-                            <h1 className="text-2xl font-medium">
-                                {artist.name}
-                            </h1>
+                            <Title text={artist.name} />
                             <div className="mt-1">
                                 <p className="text-gray-400">
                                     Popularity: {artist.popularity}
@@ -99,14 +96,10 @@ export default function ArtistInfo() {
             }
             {
                 !albums ? (
-                    <h1 className="text-2xl font-medium mt-8">
-                        Loading albums...
-                    </h1>
+                    <Title text="Loading albums..." />
                 ) : (
                     <article className="mt-8">
-                        <h1 className="text-2xl font-medium">
-                            Albums
-                        </h1>
+                        <Title text="Albums" />
                         <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-5 lg:grid-cols-10">
                             {albums.map((album: Album) => (
                                 <section key={album.id}>
