@@ -37,7 +37,7 @@ export default function Artists() {
                             <Title text="Artists in: Rock" />
                             <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
                                 {artistsRock.map(artist => (
-                                    <ArtistCard artist={artist} />
+                                    <ArtistCard key={artist.id} artist={artist} />
                                 ))}
                             </div>
                         </>
@@ -53,7 +53,7 @@ export default function Artists() {
                             <Title text="Artists in: Pop" />
                             <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
                                 {artistsPop.map(artist => (
-                                    <ArtistCard artist={artist} />
+                                    <ArtistCard key={artist.id} artist={artist} />
                                 ))}
                             </div>
                         </>
@@ -69,7 +69,7 @@ export default function Artists() {
                             <Title text="Artists in: Country" />
                             <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
                                 {artistsCountry.map(artist => (
-                                    <ArtistCard artist={artist} />
+                                    <ArtistCard key={artist.id} artist={artist} />
                                 ))}
                             </div>   
                         </>
