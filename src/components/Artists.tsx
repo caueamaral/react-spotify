@@ -31,7 +31,7 @@ export default function Artists() {
             <article>
                 {
                     !artistsRock.length ? (
-                        <Title text="Loading artists..." />
+                        <Title text="Loading Rock Artists..." />
                     ) : (
                         <>
                             <Title text="Rock Artists" />
@@ -47,7 +47,7 @@ export default function Artists() {
             <article className="mt-10">
                 {
                     !artistsPop.length ? (
-                        <Title text="Loading artists..." />
+                        <Title text="Loading Pop Artists..." />
                     ) : (
                         <>
                             <Title text="Pop Artists" />
@@ -63,7 +63,7 @@ export default function Artists() {
             <article className="mt-10">
                 {
                     !artistsCountry.length ? (
-                        <Title text="Loading artists..." />
+                        <Title text="Loading Country Artists..." />
                     ) : (
                         <>
                             <Title text="Country Artists" />
