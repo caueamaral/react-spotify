@@ -34,7 +34,7 @@ export default function Artists() {
                         <Title text="Loading artists..." />
                     ) : (
                         <>
-                            <Title text="Artists in: Rock" />
+                            <Title text="Rock Artists" />
                             <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
                                 {artistsRock.map(artist => (
                                     <ArtistCard key={artist.id} artist={artist} />
@@ -50,7 +50,7 @@ export default function Artists() {
                         <Title text="Loading artists..." />
                     ) : (
                         <>
-                            <Title text="Artists in: Pop" />
+                            <Title text="Pop Artists" />
                             <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
                                 {artistsPop.map(artist => (
                                     <ArtistCard key={artist.id} artist={artist} />
@@ -66,7 +66,7 @@ export default function Artists() {
                         <Title text="Loading artists..." />
                     ) : (
                         <>
-                            <Title text="Artists in: Country" />
+                            <Title text="Country Artists" />
                             <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
                                 {artistsCountry.map(artist => (
                                     <ArtistCard key={artist.id} artist={artist} />
