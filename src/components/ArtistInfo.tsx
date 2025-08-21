@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getArtist, getAlbums } from '../services/spotify'
+import { getAlbums } from '../services/spotify'
+import { getArtist } from '../services/getArtist'
 import formatArrayWithCommas from '../functions/formatArrayWithCommas'
 import { useAccessToken } from '../contexts/AccessTokenContext'
 import type { Artist } from '../interfaces/Artist'
