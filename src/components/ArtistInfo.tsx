@@ -57,7 +57,7 @@ export default function ArtistInfo() {
                     </h1>
                 ) : (
                     <article className="flex flex-col gap-5 md:flex-row">
-                        <figure className="w-full aspect-square rounded-lg overflow-hidden md:max-w-103">
+                        <figure className="w-full aspect-square rounded-lg overflow-hidden md:max-w-105">
                             <img
                                 src={artist.images[0].url}
                                 alt={artist.name}
