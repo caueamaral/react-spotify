@@ -8,7 +8,7 @@ export default async function getArtists(accessToken: string, genre: string): Pr
             params: {
                 q: genre,
                 type: 'artist',
-                limit: 16
+                limit: 8
             },
             headers: {
                 Authorization: `Bearer ${accessToken}`
