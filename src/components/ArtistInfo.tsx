@@ -11,6 +11,7 @@ import getArtist from '../services/getArtist'
 import getAlbums from '../services/getAlbums'
 import getTopTracks from '../services/getTopTracks'
 import Title from '../components/Title'
+import AlbumCard from '../components/AlbumCard'
 
 export default function ArtistInfo() {
     const accessToken = useAccessToken()
@@ -102,18 +103,7 @@ export default function ArtistInfo() {
                         <Title text="Albums" />
                         <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-5 lg:grid-cols-10">
                             {albums.map((album: Album) => (
-                                <section key={album.id}>
-                                    <figure className="bg-gray-400 w-full aspect-square rounded-md overflow-hidden">
-                                        <img
-                                            src={album.images[1]?.url}
-                                            alt={album.name}
-                                            className="w-full object-cover"
-                                        />
-                                    </figure>
-                                    <figcaption className="mt-2 text-gray-400 text-sm">
-                                        {album.name}
-                                    </figcaption>
-                                </section>
+                                <AlbumCard key={album.id} album={album} />
                             ))}
                         </div>
                     </article>
