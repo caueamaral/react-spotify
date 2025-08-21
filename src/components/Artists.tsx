@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useAccessToken } from '../contexts/AccessTokenContext'
 
-import type { Artist } from '../interfaces/Artist'
+import type Artist from '../interfaces/Artist'
 
 import getArtists from '../services/getArtists'
 import Title from '../components/Title'

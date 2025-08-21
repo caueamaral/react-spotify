@@ -1,5 +1,5 @@
 import axios from 'axios'
-import type { Artist } from '../interfaces/Artist'
+import type Artist from '../interfaces/Artist'
 
 export default async function getArtists(accessToken: string, genre: string): Promise<Artist[]> {
     const response = await axios.get(

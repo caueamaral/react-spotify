@@ -1,6 +1,6 @@
-import type { ArtistImage } from './ArtistImage'
+import type ArtistImage from './ArtistImage'
 
-export interface Artist {
+export default interface Artist {
     id: string,
     name: string,
     popularity: number,

@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom'
 import formatText from '../functions/formatText'
 
-import type { Artist } from '../interfaces/Artist'
+import type Artist from '../interfaces/Artist'
 
 export default function ArtistCard({ artist }: { artist: Artist }) {
     return (        

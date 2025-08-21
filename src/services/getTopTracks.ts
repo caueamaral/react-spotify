@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import type { TopTracks } from '../interfaces/TopTracks'
+import type TopTracks from '../interfaces/TopTracks'
 
 export default async function getTopTracks(accessToken: string, artistId: string) {
     const response = await axios.get<TopTracks>(

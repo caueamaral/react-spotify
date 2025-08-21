@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAccessToken } from '../contexts/AccessTokenContext'
 
-import type { Artist } from '../interfaces/Artist'
-import type { Album } from '../interfaces/Album'
-import type { TopTracks } from '../interfaces/TopTracks'
+import type Artist from '../interfaces/Artist'
+import type Album from '../interfaces/Album'
+import type TopTracks from '../interfaces/TopTracks'
 
 import formatArrayWithCommas from '../functions/formatArrayWithCommas'
 import getArtist from '../services/getArtist'

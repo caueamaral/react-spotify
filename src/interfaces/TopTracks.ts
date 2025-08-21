@@ -1,4 +1,4 @@
-export interface TopTracks {
+export default interface TopTracks {
     tracks: {
         id: number,
         album: {
