@@ -55,7 +55,7 @@ export default function ArtistInfo() {
                             <img
                                 src={artist.images[0].url}
                                 alt={artist.name}
-                                className="w-full object-cover"
+                                className="w-full object-cover rounded-lg"
                             />
                         </figure>
                         <section>
@@ -84,7 +84,7 @@ export default function ArtistInfo() {
                                         <div className="mt-1">
                                             {topTracks.tracks.map(track => (
                                                 <p key={track.id}>
-                                                    {track.album.name}
+                                                    - {track.album.name}
                                                 </p>
                                             ))}
                                         </div>

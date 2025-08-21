@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import Artists from './Artists'
 import ArtistInfo from './ArtistInfo'
+import AlbumInfo from './AlbumInfo'
 
 export default function Main() {
     return (
@@ -9,6 +10,7 @@ export default function Main() {
             <Routes>
                 <Route path="/" element={<Artists />} />
                 <Route path="/artist/:id/:name" element={<ArtistInfo/>} />
+                <Route path="/album/:id/:name" element={<AlbumInfo />} />
             </Routes>
         </main>
     )
