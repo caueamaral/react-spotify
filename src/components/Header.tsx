@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export default function Header() {
     return  (
         <header className="p-5">
-            <h1 className="flex items-center text-lg relative tracking-wide">
+            <h1 className="flex items-center text-lg relative tracking-wide max-w-max">
                 <svg
                     role="img"
                     viewBox="0 0 24 24"
