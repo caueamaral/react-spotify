@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import { useAccessToken } from '../contexts/AccessTokenContext'
 import getAlbum from '../services/getAlbum'
 
+import formatDate from '../functions/formatDate'
+
 import type Album from '../interfaces/Album'
 import Title from '../components/Title'
 
@@ -45,7 +47,7 @@ export default function AlbumInfo() {
                             <Title text={album.name} />
                             <div className="mt-1">
                                 <p className="text-gray-400">
-                                    Release date: {album.release_date}
+                                    Release date: {formatDate(album.release_date)}
                                 </p>
                                 <p className="text-gray-400">
                                     Total tracks: {album.total_tracks}
