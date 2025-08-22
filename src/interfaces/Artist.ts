@@ -8,5 +8,5 @@ export default interface Artist {
     genres: string[],
     followers: {
         total: number
-    },
+    }
 }

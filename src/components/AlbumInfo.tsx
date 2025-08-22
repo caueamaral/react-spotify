@@ -24,12 +24,6 @@ export default function AlbumInfo() {
             )
     }, [accessToken])
 
-    useEffect(() => {
-        if (!accessToken || !id) return
-
-        console.log('album', album)
-    }, [album])
-
     return (
         <>
             {

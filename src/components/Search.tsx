@@ -1,10 +1,32 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import formatText from '../functions/formatText'
+
 export default function Search() {
+    const [search, setSearch] = useState<string>('')
+    const navigate = useNavigate()
+
+    function handleForm(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault()
+
+        const query = formatText(search)
+
+        if (query) {
+            navigate(`/search/${query}`)
+        }
+    }
+
     return (
-        <form className="bg-neutral-600 flex items-center rounded-md w-full md:w-70">
+        <form
+            className="bg-neutral-600 flex items-center rounded-md w-full md:w-70"
+            onSubmit={handleForm}
+        >
             <input
                 type="text"
-                placeholder="Search for artist or album..."
+                placeholder="Search for artist or track..."
                 className="py-1.5 px-3 flex-grow focus:outline-none"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
             />
             <button className="cursor-pointer mr-2">
                 <svg xmlns="http://www.w3.org/2000/svg" height="22px" version="1.1" viewBox="0 0 48 48" width="22px">
