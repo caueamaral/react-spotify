@@ -54,11 +54,21 @@ export default function ArtistInfo() {
                         <Title text="Artist info" />
                         <div className="flex flex-col mt-4 gap-5 md:flex-row">
                             <figure className="w-full aspect-square rounded-lg overflow-hidden md:max-w-105">
-                                <img
-                                    src={artist.images[0].url}
-                                    alt={artist.name}
-                                    className="w-full object-cover rounded-lg"
-                                />
+                                {
+                                    !artist.images[0] ? (
+                                        <img
+                                            src={`/src/images/image-not-found.jpg`}
+                                            alt="Image not found"
+                                            className="w-full object-cover"
+                                        />
+                                    ) : (
+                                        <img
+                                            src={artist.images[0].url}
+                                            alt={artist.name}
+                                            className="w-full object-cover rounded-lg"
+                                        />
+                                    )
+                                }
                             </figure>
                             <section>
                                 <Title text={artist.name} />

@@ -5,14 +5,26 @@ import formatText from '../functions/formatText'
 import type Artist from '../interfaces/Artist'
 
 export default function ArtistCard({ artist }: { artist: Artist }) {
+    const image = artist.images[1] ?? artist.images[0]
+
     return (        
         <section key={artist.id} className="relative">
             <figure className="bg-gray-400 w-full aspect-square rounded-md overflow-hidden">
-                <img
-                    src={artist.images[1]?.url}
-                    alt={artist.name}
-                    className="w-full object-cover"
-                />
+                {
+                    !image ? (
+                        <img
+                            src={`/src/images/image-not-found.jpg`}
+                            alt="Image not found"
+                            className="w-full object-cover"
+                        />
+                    ) : (
+                        <img
+                            src={image.url}
+                            alt={artist.name}
+                            className="w-full object-cover"
+                        />
+                    )
+                }
             </figure>
             <figcaption className="mt-2 text-gray-400 text-sm">
                 {artist.name}
