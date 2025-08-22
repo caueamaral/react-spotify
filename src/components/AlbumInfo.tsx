@@ -36,41 +36,44 @@ export default function AlbumInfo() {
                 !album ? (
                     <Title text="Loading album..." />
                 ) : (
-                    <article className="flex flex-col gap-5 md:flex-row">
-                        <figure className="w-full aspect-square rounded-lg overflow-hidden md:max-w-105">
-                            <img
-                                src={album.images[0].url}
-                                alt={album.name}
-                                className="w-full object-cover rounded-lg"
-                            />
-                        </figure>
-                        <section>
-                            <Title text={album.name} />
-                            <div className="mt-1">
-                                <p className="text-gray-400">
-                                    Release date: {formatDate(album.release_date)}
-                                </p>
-                                <p className="text-gray-400">
-                                    Total tracks: {album.total_tracks}
-                                </p>
-                            </div>
-                            <div className="mt-10">
-                                <h2 className="text-xl font-medium">
-                                    Tracks
-                                </h2>
-                                <div>
-                                    {album.tracks.items.map(item => (
-                                        <p key={item.id} className="mt-3">
-                                            {item.track_number}-
-                                            <span className="ml-1">{item.name}</span>
-                                            <span className="text-gray-400 text-sm ml-1">
-                                                ({formatDuration(item.duration_ms)})
-                                            </span>
-                                        </p>
-                                    ))}
+                    <article>
+                        <Title text="Album page" />
+                        <div className="flex flex-col mt-4 gap-5 md:flex-row">
+                            <figure className="w-full aspect-square rounded-lg overflow-hidden md:max-w-105">
+                                <img
+                                    src={album.images[0].url}
+                                    alt={album.name}
+                                    className="w-full object-cover rounded-lg"
+                                />
+                            </figure>
+                            <section>
+                                <Title text={album.name} />
+                                <div className="mt-1">
+                                    <p className="text-gray-400">
+                                        Release date: {formatDate(album.release_date)}
+                                    </p>
+                                    <p className="text-gray-400">
+                                        Total tracks: {album.total_tracks}
+                                    </p>
                                 </div>
-                            </div>
-                        </section>
+                                <div className="mt-10">
+                                    <h2 className="text-xl font-medium">
+                                        Tracks
+                                    </h2>
+                                    <div>
+                                        {album.tracks.items.map(item => (
+                                            <p key={item.id} className="mt-3">
+                                                {item.track_number}-
+                                                <span className="ml-1">{item.name}</span>
+                                                <span className="text-gray-400 text-sm ml-1">
+                                                    ({formatDuration(item.duration_ms)})
+                                                </span>
+                                            </p>
+                                        ))}
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
                     </article>
                 )
             }
