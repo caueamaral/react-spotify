@@ -1,10 +1,10 @@
 export default function Search() {
     return (
-        <form className="bg-neutral-600 flex items-center rounded-md">
+        <form className="bg-neutral-600 flex items-center rounded-md w-full md:w-70">
             <input
                 type="text"
                 placeholder="Search for artist or album..."
-                className="py-1.5 px-3 w-70 focus:outline-none"
+                className="py-1.5 px-3 flex-grow focus:outline-none"
             />
             <button className="cursor-pointer mr-2">
                 <svg xmlns="http://www.w3.org/2000/svg" height="22px" version="1.1" viewBox="0 0 48 48" width="22px">
