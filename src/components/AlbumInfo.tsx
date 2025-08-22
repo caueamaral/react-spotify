@@ -37,7 +37,7 @@ export default function AlbumInfo() {
                     <Title text="Loading album..." />
                 ) : (
                     <article>
-                        <Title text="Album page" />
+                        <Title text="Album info" />
                         <div className="flex flex-col mt-4 gap-5 md:flex-row">
                             <figure className="w-full aspect-square rounded-lg overflow-hidden md:max-w-105">
                                 <img

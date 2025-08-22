@@ -51,7 +51,7 @@ export default function ArtistInfo() {
                     <Title text="Loading artist..." />
                 ) : (
                     <article>
-                        <Title text="Artist page" />
+                        <Title text="Artist info" />
                         <div className="flex flex-col mt-4 gap-5 md:flex-row">
                             <figure className="w-full aspect-square rounded-lg overflow-hidden md:max-w-105">
                                 <img
