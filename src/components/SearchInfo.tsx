@@ -6,7 +6,6 @@ import getSearch from '../services/getSearch'
 import ArtistCard from '../components/ArtistCard' 
 
 import type SearchResult from '../interfaces/SearchResult'
-import type Artist from '../interfaces/Artist'
 import type Track from '../interfaces/Track'
 
 export default function SearchInfo() {
