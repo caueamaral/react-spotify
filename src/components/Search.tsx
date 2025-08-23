@@ -18,7 +18,7 @@ export default function Search() {
 
     return (
         <form
-            className="bg-neutral-600 flex items-center rounded-md w-full md:w-70"
+            className="bg-neutral-600 flex items-center rounded-md w-full transition-all duration-300 md:w-63 focus-within:md:w-100"
             onSubmit={handleForm}
         >
             <input
