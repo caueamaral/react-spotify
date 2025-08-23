@@ -4,6 +4,7 @@ import Artists from './Artists'
 import ArtistInfo from './ArtistInfo'
 import AlbumInfo from './AlbumInfo'
 import SearchInfo from './SearchInfo'
+import NotFound from './NotFound'
 
 export default function Main() {
     return (
@@ -13,6 +14,7 @@ export default function Main() {
                 <Route path="/artist/:id/:name" element={<ArtistInfo/>} />
                 <Route path="/album/:id/:name" element={<AlbumInfo />} />
                 <Route path="/search/:query" element={<SearchInfo />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </main>
     )
