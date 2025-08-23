@@ -7,8 +7,8 @@ export default async function getSearch(accessToken: string, query: string): Pro
         {
             params: {
                 q: query,
-                type: 'artist,track',
-                limit: 5
+                type: 'artist,album',
+                limit: 1
             },
             headers: {
                 Authorization: `Bearer ${accessToken}`

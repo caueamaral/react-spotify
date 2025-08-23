@@ -3,11 +3,15 @@ import formatText from '../functions/formatText'
 
 import type Album from '../interfaces/Album'
 
-export default function AlbumCard({ album }: { album: Album }) {
+export default function AlbumCard({ album, index }: { album: Album, index: number }) {
     const image = album.images[1] ?? album.images[0]
 
     return (
-        <section key={album.id} className="relative">
+        <section
+            key={album.id}
+            className="relative slide-in"
+            style={{ animationDelay: `${index * 100}ms` }}
+        >
             <figure className="bg-gray-400 w-full aspect-square rounded-md overflow-hidden">
                 {
                     !image ? (

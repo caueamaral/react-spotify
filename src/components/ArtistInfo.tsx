@@ -52,7 +52,7 @@ export default function ArtistInfo() {
                 ) : (
                     <article>
                         <Title text="Artist info" />
-                        <div className="flex flex-col mt-4 gap-5 md:flex-row">
+                        <div className="flex flex-col mt-4 gap-5 md:flex-row slide-in">
                             <figure className="w-full aspect-square rounded-lg overflow-hidden md:max-w-105">
                                 {
                                     !artist.images[0] ? (
@@ -115,8 +115,12 @@ export default function ArtistInfo() {
                     <article className="mt-8">
                         <Title text="Albums" />
                         <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-5 lg:grid-cols-10">
-                            {albums.map((album: Album) => (
-                                <AlbumCard key={album.id} album={album} />
+                            {albums.map((album, index) => (
+                                <AlbumCard
+                                    key={album.id}
+                                    album={album}
+                                    index={index}
+                                />
                             ))}
                         </div>
                     </article>

@@ -36,8 +36,12 @@ export default function Artists() {
                         <>
                             <Title text="Rock Artists" />
                             <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
-                                {artistsRock.map(artist => (
-                                    <ArtistCard key={artist.id} artist={artist} />
+                                {artistsRock.map((artist, index) => (
+                                    <ArtistCard
+                                        key={artist.id}
+                                        artist={artist}
+                                        index={index}
+                                    />
                                 ))}
                             </div>
                         </>
@@ -52,8 +56,12 @@ export default function Artists() {
                         <>
                             <Title text="Pop Artists" />
                             <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
-                                {artistsPop.map(artist => (
-                                    <ArtistCard key={artist.id} artist={artist} />
+                                {artistsPop.map((artist, index) => (
+                                    <ArtistCard
+                                        key={artist.id}
+                                        artist={artist}
+                                        index={index}
+                                    />
                                 ))}
                             </div>
                         </>
@@ -68,8 +76,12 @@ export default function Artists() {
                         <>
                             <Title text="Country Artists" />
                             <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
-                                {artistsCountry.map(artist => (
-                                    <ArtistCard key={artist.id} artist={artist} />
+                                {artistsCountry.map((artist, index) => (
+                                    <ArtistCard
+                                        key={artist.id}
+                                        artist={artist}
+                                        index={index}
+                                    />
                                 ))}
                             </div>   
                         </>

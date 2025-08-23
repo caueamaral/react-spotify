@@ -23,7 +23,7 @@ export default function Search() {
         >
             <input
                 type="text"
-                placeholder="Search for artist or track..."
+                placeholder="Search for artist or album..."
                 className="py-1.5 px-3 flex-grow focus:outline-none"
                 value={search}
                 onChange={e => setSearch(e.target.value)}

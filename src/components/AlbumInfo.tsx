@@ -32,7 +32,7 @@ export default function AlbumInfo() {
                 ) : (
                     <article>
                         <Title text="Album info" />
-                        <div className="flex flex-col mt-4 gap-5 md:flex-row">
+                        <div className="flex flex-col mt-4 gap-5 md:flex-row slide-in">
                             <figure className="w-full aspect-square rounded-lg overflow-hidden md:max-w-105">
                                 <img
                                     src={album.images[0].url}

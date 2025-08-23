@@ -1,11 +1,11 @@
 import type Artist from './Artist'
-import type Track from './Track'
+import type Album from './Album'
 
 export default interface SearchResult {
     artists?: {
         items: Artist[]
     },
-    tracks?: {
-        items: Track[]
+    albums?: {
+        items: Album[]
     }
 }
