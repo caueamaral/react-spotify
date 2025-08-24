@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useAccessToken } from '../contexts/AccessTokenContext'
 
 import type Artist from '../interfaces/Artist'
@@ -18,8 +18,12 @@ export default function ArtistInfo() {
     const [artist, setArtist] = useState<Artist | null>(null)
     const [albums, setAlbums] = useState<Album[] | null>(null)
     const [topTracks, setTopTracks] = useState<TopTracks | null>(null)
-    
     const { id } = useParams<{ id: string }>()
+    const navigate = useNavigate()
+
+    function goBack() {
+        navigate(-1)
+    }
 
     useEffect(() => {
         if (!accessToken || !id) return
@@ -50,7 +54,7 @@ export default function ArtistInfo() {
                 !artist ? (
                     <Title text="Loading artist..." />
                 ) : (
-                    <article>
+                    <article className="relative">
                         <Title text="Artist info" />
                         <div className="flex flex-col mt-4 gap-5 md:flex-row slide-in">
                             <figure className="w-full aspect-square rounded-lg overflow-hidden md:max-w-105">
@@ -105,6 +109,9 @@ export default function ArtistInfo() {
                                 }
                             </section>
                         </div>
+                        <button onClick={goBack} className="text-gray-400 cursor-pointer underline absolute right-0 top-1">
+                            Back
+                        </button>
                     </article>
                 )
             }
