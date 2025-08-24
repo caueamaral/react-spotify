@@ -12,82 +12,46 @@ export default function Artists() {
     const [artistsRock, setArtistsRock] = useState<Artist[]>([])
     const [artistsPop, setArtistsPop] = useState<Artist[]>([])
     const [artistsCountry, setArtistsCountry] = useState<Artist[]>([])
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         if (!accessToken) return
 
-        getArtists(accessToken, 'rock')
-            .then(response => setArtistsRock(response))
+        Promise.all([
+            getArtists(accessToken, 'rock').then(response => setArtistsRock(response)),
+            getArtists(accessToken, 'pop').then(response => setArtistsPop(response)),
+            getArtists(accessToken, 'country').then(response => setArtistsCountry(response))
+        ])
+            .finally(() => setIsLoading(false))
 
-        getArtists(accessToken, 'pop')
-            .then(response => setArtistsPop(response))
-
-        getArtists(accessToken, 'country')
-            .then(response => setArtistsCountry(response))
     }, [accessToken])
+
+    const renderArtistsSection = (title: string, artists: Artist[]) => (
+        <article className="mt-10">
+            {isLoading ? (
+                <Title text={`Loading ${title}...`} />
+            ) : (
+                <>
+                    <Title text="Pop Artists" />
+                    <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
+                        {artists.map((artist, index) => (
+                            <ArtistCard
+                                key={artist.id}
+                                artist={artist}
+                                index={index}
+                            />
+                        ))}
+                    </div>
+                </>
+            )}
+        </article>
+    )
 
     return (
         <>
-            <article>
-                {
-                    !artistsRock.length ? (
-                        <Title text="Loading Rock Artists..." />
-                    ) : (
-                        <>
-                            <Title text="Rock Artists" />
-                            <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
-                                {artistsRock.map((artist, index) => (
-                                    <ArtistCard
-                                        key={artist.id}
-                                        artist={artist}
-                                        index={index}
-                                    />
-                                ))}
-                            </div>
-                        </>
-                    )
-                }
-            </article>
-            <article className="mt-10">
-                {
-                    !artistsPop.length ? (
-                        <Title text="Loading Pop Artists..." />
-                    ) : (
-                        <>
-                            <Title text="Pop Artists" />
-                            <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
-                                {artistsPop.map((artist, index) => (
-                                    <ArtistCard
-                                        key={artist.id}
-                                        artist={artist}
-                                        index={index}
-                                    />
-                                ))}
-                            </div>
-                        </>
-                    )
-                }
-            </article>
-            <article className="mt-10">
-                {
-                    !artistsCountry.length ? (
-                        <Title text="Loading Country Artists..." />
-                    ) : (
-                        <>
-                            <Title text="Country Artists" />
-                            <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
-                                {artistsCountry.map((artist, index) => (
-                                    <ArtistCard
-                                        key={artist.id}
-                                        artist={artist}
-                                        index={index}
-                                    />
-                                ))}
-                            </div>   
-                        </>
-                    )
-                }
-            </article>
+            {renderArtistsSection('Rock Artists', artistsRock)}
+            {renderArtistsSection('Pop Artists', artistsPop)}
+            {renderArtistsSection('Country Artists', artistsCountry)}
         </>
     )
 }
