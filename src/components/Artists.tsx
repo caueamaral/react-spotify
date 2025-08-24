@@ -28,24 +28,22 @@ export default function Artists() {
 
     const renderArtistsSection = (title: string, artists: Artist[]) => (
         <article>
-            {isLoading ? (
-                <Title text={`Loading ${title}...`} />
-            ) : (
-                <>
-                    <Title text="Pop Artists" />
-                    <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
-                        {artists.map((artist, index) => (
-                            <ArtistCard
-                                key={artist.id}
-                                artist={artist}
-                                index={index}
-                            />
-                        ))}
-                    </div>
-                </>
-            )}
+            <Title text={title} />
+            <div className="grid gap-5 mt-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
+                {artists.map((artist, index) => (
+                    <ArtistCard
+                        key={artist.id}
+                        artist={artist}
+                        index={index}
+                    />
+                ))}
+            </div>
         </article>
     )
+
+    if (isLoading) {
+        return <Title text="Loading Artists..." />
+    }
 
     return (
         <div className="grid gap-10">
