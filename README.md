@@ -1,69 +1,53 @@
-# React + TypeScript + Vite
+React application using [Spotify API](https://developer.spotify.com/documentation/web-api) that finds albums and artists.
+[See the project](https://caueamaral.github.io/react-spotify).
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img src="src/images/react-spotify.jpg" alt="Spotify in React.js">
 
-Currently, two official plugins are available:
+## React
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Context API
+- React Router DOM
+- Tailwind CSS
+- useEffect()
+- useState()
+- Axios
+- Vitest
 
-## Expanding the ESLint configuration
+### How to use it
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1 - Clone the repository.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+git clone https://github.com/caueamaral/react-spotify.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2 - Install the dependencies.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```sh
+npm install
+```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+3 - Create a Account in [Spotify for Developers](https://developer.spotify.com).
+
+4 - In the [Dashboard](https://developer.spotify.com/dashboard) create a new app.
+
+5 - Get your `Client ID` and `Client secret` in [Dashboard](https://www.themoviedb.org/settings/api).
+
+6 - Create a `.env` file in the root of the application with a `VITE_CLIENT_ID` and `VITE_CLIENT_SECRET` variables.
+
+```
+VITE_CLIENT_ID = 'insert-your-client-id-here'
+VITE_CLIENT_SECRET = 'insert-your-client-secret-here'
+```
+
+7 - Start the web server.
+
+```sh
+npm run dev
+```
+
+8 - Open localhost in the browser.
+
+```sh
+http://localhost:5173
 ```
