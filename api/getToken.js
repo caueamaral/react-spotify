@@ -1,6 +1,14 @@
 import axios from 'axios'
 
 export default async function handler(req, res) {
+    res.setHeader('Access-Control-Allow-Origin', 'https://caueamaral.github.io/react-spotify')
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end()
+    }
+
     const clientId = process.env.VITE_CLIENT_ID
     const clientSecret = process.env.VITE_CLIENT_SECRET
     const authHeader = Buffer.from(`${clientId}:${clientSecret}`).toString('base64')
