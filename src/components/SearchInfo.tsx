@@ -7,7 +7,6 @@ import ArtistCard from '../components/ArtistCard'
 import AlbumCard from '../components/AlbumCard'
 
 import type SearchResult from '../interfaces/SearchResult'
-import type Album from '../interfaces/Album'
 
 export default function SearchInfo() {
     const accessToken = useAccessToken()
@@ -33,6 +32,7 @@ export default function SearchInfo() {
                             <ArtistCard
                                 key={searchResult.artists.items[0].id}
                                 artist={searchResult.artists.items[0]}
+                                index={1}
                             />
                         </div>
                     </article>
@@ -48,6 +48,7 @@ export default function SearchInfo() {
                             <AlbumCard
                                 key={searchResult.albums.items[0].id}
                                 album={searchResult.albums.items[0]}
+                                index={1}
                             />
                         </div>
                     </article>
