@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default async function getAccessToken(): Promise<string> {
     try {
-        const response = await axios.get('/api/getToken')
+        const response = await axios.get('https://react-spotify-three.vercel.app/api/getToken')
 
         return response.data.access_token
     }
