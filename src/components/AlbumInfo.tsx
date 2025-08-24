@@ -11,7 +11,8 @@ import Title from '../components/Title'
 
 export default function AlbumInfo() {
     const accessToken = useAccessToken()
-    const [album, setAlbum] = useState<Album | null>(null)    
+    const [album, setAlbum] = useState<Album | null>(null)
+    const [isLoading, setIsLoading] = useState(true)
     const { id } = useParams<{ id: string }>()
     const navigate = useNavigate()
 
@@ -23,18 +24,17 @@ export default function AlbumInfo() {
         if (!accessToken || !id) return
 
         getAlbum(accessToken, id)
-            .then(response => {
-                setAlbum(response)}
-            )
-    }, [accessToken])
+            .then(setAlbum)
+            .finally(() => setIsLoading(false))
+    }, [accessToken, id])
 
     return (
         <>
-            {
-                !album ? (
+            <article className="relative">
+                {isLoading ? (
                     <Title text="Loading album..." />
-                ) : (
-                    <article className="relative">
+                ) : album ? (
+                    <>
                         <Title text="Album info" />
                         <div className="flex flex-col mt-4 gap-5 md:flex-row slide-in">
                             <figure className="w-full aspect-square rounded-lg overflow-hidden md:max-w-105">
@@ -75,9 +75,9 @@ export default function AlbumInfo() {
                         <button onClick={goBack} className="text-gray-400 cursor-pointer underline absolute right-0 top-1">
                             Back
                         </button>
-                    </article>
-                )
-            }
+                    </>
+                ) : null}
+            </article>
         </>
     )
 }
