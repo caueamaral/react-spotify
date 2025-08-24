@@ -19,7 +19,7 @@ export default function ArtistCard({ artist, index }: { artist: Artist, index: n
                 {
                     !image ? (
                         <img
-                            src="image-not-found.jpg"
+                            src="images/image-not-found.jpg"
                             alt="Image not found"
                             className="w-full object-cover"
                         />
