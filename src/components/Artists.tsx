@@ -18,9 +18,9 @@ export default function Artists() {
         if (!accessToken) return
 
         Promise.all([
-            getArtists(accessToken, 'rock').then(response => setArtistsRock(response)),
-            getArtists(accessToken, 'pop').then(response => setArtistsPop(response)),
-            getArtists(accessToken, 'country').then(response => setArtistsCountry(response))
+            getArtists(accessToken, 'rock').then(setArtistsRock),
+            getArtists(accessToken, 'pop').then(setArtistsPop),
+            getArtists(accessToken, 'country').then(setArtistsCountry)
         ])
             .finally(() => setIsLoading(false))
 
