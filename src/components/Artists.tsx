@@ -27,7 +27,7 @@ export default function Artists() {
     }, [accessToken])
 
     const renderArtistsSection = (title: string, artists: Artist[]) => (
-        <article className="mt-10">
+        <article>
             {isLoading ? (
                 <Title text={`Loading ${title}...`} />
             ) : (
@@ -48,10 +48,10 @@ export default function Artists() {
     )
 
     return (
-        <>
+        <div className="grid gap-10">
             {renderArtistsSection('Rock Artists', artistsRock)}
             {renderArtistsSection('Pop Artists', artistsPop)}
             {renderArtistsSection('Country Artists', artistsCountry)}
-        </>
+        </div>
     )
 }
