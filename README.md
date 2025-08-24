@@ -49,5 +49,5 @@ npm run dev
 8 - Open localhost in the browser.
 
 ```sh
-http://localhost:5173
+http://localhost:5173/react-spotify
 ```
