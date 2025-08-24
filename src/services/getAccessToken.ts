@@ -1,26 +1,13 @@
 import axios from 'axios'
 
-const clientId = import.meta.env.VITE_CLIENT_ID
-const clientSecret = import.meta.env.VITE_CLIENT_SECRET
-
 export default async function getAccessToken(): Promise<string> {
     try {
-        const authHeader = btoa(`${clientId}:${clientSecret}`)
+        const response = await axios.get('/api/getToken')
 
-        const response = await axios.post(
-            'https://accounts.spotify.com/api/token',
-            new URLSearchParams({ grant_type: 'client_credentials' }),
-            {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Authorization': `Basic ${authHeader}`
-                },
-            }
-        )
         return response.data.access_token
     }
     catch (err) {
-        console.error('getAccessToken Spotify API error: ', err)
+        console.error('getAccessToken error: ', err)
         throw err
     }
 }
