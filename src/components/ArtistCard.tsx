@@ -7,8 +7,6 @@ import type Artist from '../interfaces/Artist'
 export default function ArtistCard({ artist, index }: { artist: Artist, index: number }) {
     const image = artist.images[1] || artist.images[0] || null
 
-    console.log('artist', artist)
-
     return (        
         <section
             key={artist.id}
