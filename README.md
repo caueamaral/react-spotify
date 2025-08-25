@@ -5,6 +5,7 @@ React application using [Spotify API](https://developer.spotify.com/documentatio
 
 ## React
 
+- React Query
 - Context API
 - React Router DOM
 - Tailwind CSS
