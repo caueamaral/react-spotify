@@ -11,10 +11,13 @@ React application using [Spotify API](https://developer.spotify.com/documentatio
 - Tailwind CSS
 - useEffect()
 - useState()
-- Axios
 - Vitest
+- React Testing Library
+- Axios
 
 ### How to use it
+
+Use Node `v22.13.1` for better compatibility.
 
 1 - Clone the repository.
 
