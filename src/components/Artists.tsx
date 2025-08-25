@@ -25,7 +25,7 @@ export default function Artists() {
         staleTime: fiveMinutes
     })
 
-    const { data: artistsCountry, isLoading } = useQuery<Artist[]>({
+    const { data: artistsCountry, isLoading: loadingCountry } = useQuery<Artist[]>({
         queryKey: ['artists', 'country'],
         queryFn: () => getArtists(accessToken!, 'country'),
         enabled: !!accessToken,
@@ -47,7 +47,7 @@ export default function Artists() {
         </article>
     )
 
-    if (loadingRock || loadingPop) {
+    if (loadingRock || loadingPop || loadingCountry) {
         return <Title text="Loading Artists..." />
     }
 
